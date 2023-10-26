@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": false,
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM", "WebWorker"],
+    "skipLibCheck": true,
+
+    "noEmit": true,
+
+    "allowSyntheticDefaultImports": true,
+    "checkJs": false,
+    "sourceMap": true,
+    "allowJs": true,
+
+    "types": ["node", "pinia-plugin-persist"],
+
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  },
+  "files": [],
+  "include": [
+    "src/**/*.ts", //
+    "src/**/*.jsx",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/components/*.ts",
+    "src/router/index.ts",
+    "src/main.js",
+    "src/main.ts",
+    "typings/**/*.d.ts"
+  ],
+  "exclude": ["node_modules"],
+  "references": [
+    // {
+    //   "path": "./tsconfig.app.json"
+    // },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
