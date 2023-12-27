@@ -182,36 +182,36 @@ export default ({ mode, command }: { mode: string; command: string }) => {
         filename: './dist/stats.html'
       }),
 
-      {
-        ...ExternalGlobals({
-          vue: 'Vue',
-          'vue-router': 'VueRouter'
-        }),
-        enforce: 'post',
-        apply: 'build'
-      },
+      // {
+      //   ...ExternalGlobals({
+      //     vue: 'Vue',
+      //     'vue-router': 'VueRouter'
+      //   }),
+      //   enforce: 'post',
+      //   apply: 'build'
+      // },
 
-      CdnImport({
-        modules: [
-          autoComplete('vue'),
-          {
-            name: 'vue-demi',
-            var: 'VueDemi',
-            path: 'https://unpkg.com/vue-demi@0.14.6/lib/index.iife.js'
-          },
-          {
-            name: 'vue-router',
-            var: 'VueRouter',
-            path: 'https://unpkg.com/vue-router@4.2.4/dist/vue-router.global.js'
-          },
-          {
-            name: 'element-plus',
-            var: 'ElementPlus',
-            path: 'https://unpkg.com/element-plus@2.3.14/dist/index.full.js',
-            css: 'https://unpkg.com/element-plus@2.3.14/dist/index.css'
-          }
-        ]
-      })
+      // CdnImport({
+      //   modules: [
+      //     autoComplete('vue'),
+      //     {
+      //       name: 'vue-demi',
+      //       var: 'VueDemi',
+      //       path: 'https://unpkg.com/vue-demi@0.14.6/lib/index.iife.js'
+      //     },
+      //     {
+      //       name: 'vue-router',
+      //       var: 'VueRouter',
+      //       path: 'https://unpkg.com/vue-router@4.2.4/dist/vue-router.global.js'
+      //     },
+      //     {
+      //       name: 'element-plus',
+      //       var: 'ElementPlus',
+      //       path: 'https://unpkg.com/element-plus@2.3.14/dist/index.full.js',
+      //       css: 'https://unpkg.com/element-plus@2.3.14/dist/index.css'
+      //     }
+      //   ]
+      // })
     ],
 
     build: {
@@ -251,18 +251,18 @@ export default ({ mode, command }: { mode: string; command: string }) => {
       sourcemap: command === 'build',
 
       // chunk 大小警告
-      chunkSizeWarningLimit: 800,
+      chunkSizeWarningLimit: 500,
 
       rollupOptions: {
-        external: ['element-plus', 'vue', 'vue-router'],
+        // external: ['element-plus', 'vue', 'vue-router'],
 
         output: {
-          globals: {
-            vue: 'vue',
-            'vue-demi': 'VueDemi',
-            'vue-router': 'VueRouter',
-            'element-plus': 'ElementPlus'
-          },
+          // globals: {
+          //   vue: 'vue',
+          //   'vue-demi': 'VueDemi',
+          //   'vue-router': 'VueRouter',
+          //   'element-plus': 'ElementPlus'
+          // },
 
           chunkFileNames: 'js/[name]-[hash].js',
 
@@ -271,7 +271,7 @@ export default ({ mode, command }: { mode: string; command: string }) => {
           assetFileNames: 'assets/[name]-[hash].[ext]',
 
           manualChunks: {
-            // vendor: ['vue', 'vue-router', 'pinia'],
+            vendor: ['vue', 'vue-router', 'pinia', 'pinia-plugin-persist'],
             axios: ['axios'],
             utils: ['dayjs', 'js-cookie'],
             xlsx: ['xlsx']
@@ -296,8 +296,8 @@ export default ({ mode, command }: { mode: string; command: string }) => {
 
     esbuild: {
       jsxFactory: 'h',
-      jsxFragment: 'Fragment'
-      // jsxInject: "import { h } from 'vue'"
+      jsxFragment: 'Fragment',
+      jsxInject: "import { h } from 'vue'"
     },
 
     server: {

@@ -16,6 +16,7 @@
     "noEmit": true,
 
     "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
     "checkJs": false,
     "sourceMap": true,
     "allowJs": true,
@@ -45,8 +46,8 @@
     // {
     //   "path": "./tsconfig.app.json"
     // },
-    {
-      "path": "./tsconfig.node.json"
-    }
+    // {
+    //   "path": "./tsconfig.node.json"
+    // }
   ]
 }
